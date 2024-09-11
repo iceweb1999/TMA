@@ -27,16 +27,7 @@ export const InitDataPage: FC = () => {
     if (!initData || !initDataRaw) {
       return;
     }
-    const {
-      hash,
-      queryId,
-      chatType,
-      chatInstance,
-      authDate,
-      startParam,
-      canSendAfter,
-      canSendAfterDate,
-    } = initData;
+    const { hash, queryId, chatType, chatInstance, authDate, startParam, canSendAfter, canSendAfterDate } = initData;
     return [
       { title: 'raw', value: initDataRaw },
       { title: 'auth_date', value: authDate.toLocaleString() },
@@ -76,10 +67,7 @@ export const InitDataPage: FC = () => {
 
   if (!initDataRows) {
     return (
-      <Placeholder
-        header="Oops"
-        description="Application was launched with missing init data"
-      >
+      <Placeholder header="Oops" description="Application was launched with missing init data">
         <img
           alt="Telegram sticker"
           src="https://xelene.me/telegram.gif"
@@ -90,10 +78,10 @@ export const InitDataPage: FC = () => {
   }
   return (
     <List>
-      <DisplayData header={'Init Data'} rows={initDataRows}/>
-      {userRows && <DisplayData header={'User'} rows={userRows}/>}
-      {receiverRows && <DisplayData header={'Receiver'} rows={receiverRows}/>}
-      {chatRows && <DisplayData header={'Chat'} rows={chatRows}/>}
+      <DisplayData header={'Init Data'} rows={initDataRows} />
+      {userRows && <DisplayData header={'User'} rows={userRows} />}
+      {receiverRows && <DisplayData header={'Receiver'} rows={receiverRows} />}
+      {chatRows && <DisplayData header={'Chat'} rows={chatRows} />}
     </List>
   );
 };

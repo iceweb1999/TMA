@@ -23,13 +23,7 @@ export const routes: Route[] = [
     Component: TONConnectPage,
     title: 'TON Connect',
     icon: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="100%"
-        height="100%"
-        viewBox="0 0 56 56"
-        fill="none"
-      >
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 56 56" fill="none">
         <path
           d="M28 56C43.464 56 56 43.464 56 28C56 12.536 43.464 0 28 0C12.536 0 0 12.536 0 28C0 43.464 12.536 56 28 56Z"
           fill="#0098EA"

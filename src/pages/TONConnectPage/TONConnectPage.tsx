@@ -1,15 +1,6 @@
 import { useUtils } from '@telegram-apps/sdk-react';
 import { TonConnectButton, useTonWallet } from '@tonconnect/ui-react';
-import {
-  Avatar,
-  Cell,
-  List,
-  Navigation,
-  Placeholder,
-  Section,
-  Text,
-  Title,
-} from '@telegram-apps/telegram-ui';
+import { Avatar, Cell, List, Navigation, Placeholder, Section, Text, Title } from '@telegram-apps/telegram-ui';
 import type { FC } from 'react';
 
 import { DisplayData } from '@/components/DisplayData/DisplayData.tsx';
@@ -23,14 +14,12 @@ export const TONConnectPage: FC = () => {
   if (!wallet) {
     return (
       <Placeholder
-        className='ton-connect-page__placeholder'
-        header='TON Connect'
+        className="ton-connect-page__placeholder"
+        header="TON Connect"
         description={
           <>
-            <Text>
-              To display the data related to the TON Connect, it is required to connect your wallet
-            </Text>
-            <TonConnectButton className='ton-connect-page__button'/>
+            <Text>To display the data related to the TON Connect, it is required to connect your wallet</Text>
+            <TonConnectButton className="ton-connect-page__button" />
           </>
         }
       />
@@ -39,13 +28,7 @@ export const TONConnectPage: FC = () => {
 
   const {
     account: { chain, publicKey, address },
-    device: {
-      appName,
-      appVersion,
-      maxProtocolVersion,
-      platform,
-      features,
-    },
+    device: { appName, appVersion, maxProtocolVersion, platform, features },
   } = wallet;
 
   return (
@@ -54,24 +37,22 @@ export const TONConnectPage: FC = () => {
         <>
           <Section>
             <Cell
-              before={
-                <Avatar src={wallet.imageUrl} alt='Provider logo' width={60} height={60}/>
-              }
+              before={<Avatar src={wallet.imageUrl} alt="Provider logo" width={60} height={60} />}
               after={<Navigation>About wallet</Navigation>}
               subtitle={wallet.appName}
-              onClick={(e) => {
+              onClick={e => {
                 e.preventDefault();
                 utils.openLink(wallet.aboutUrl);
               }}
             >
-              <Title level='3'>{wallet.name}</Title>
+              <Title level="3">{wallet.name}</Title>
             </Cell>
           </Section>
-          <TonConnectButton className='ton-connect-page__button-connected'/>
+          <TonConnectButton className="ton-connect-page__button-connected" />
         </>
       )}
       <DisplayData
-        header='Account'
+        header="Account"
         rows={[
           { title: 'Address', value: address },
           { title: 'Chain', value: chain },
@@ -79,7 +60,7 @@ export const TONConnectPage: FC = () => {
         ]}
       />
       <DisplayData
-        header='Device'
+        header="Device"
         rows={[
           { title: 'App Name', value: appName },
           { title: 'App Version', value: appVersion },
@@ -88,7 +69,7 @@ export const TONConnectPage: FC = () => {
           {
             title: 'Features',
             value: features
-              .map(f => typeof f === 'object' ? f.name : undefined)
+              .map(f => (typeof f === 'object' ? f.name : undefined))
               .filter(v => v)
               .join(', '),
           },

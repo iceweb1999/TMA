@@ -10,16 +10,10 @@ export const ThemeParamsPage: FC = () => {
   return (
     <List>
       <DisplayData
-        rows={
-          Object
-            .entries(themeParams.getState())
-            .map(([title, value]) => ({
-              title: title
-                .replace(/[A-Z]/g, (m) => `_${m.toLowerCase()}`)
-                .replace(/background/, 'bg'),
-              value,
-            }))
-        }
+        rows={Object.entries(themeParams.getState()).map(([title, value]) => ({
+          title: title.replace(/[A-Z]/g, m => `_${m.toLowerCase()}`).replace(/background/, 'bg'),
+          value,
+        }))}
       />
     </List>
   );
